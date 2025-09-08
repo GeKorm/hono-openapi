@@ -17,6 +17,7 @@ import type {
 import {
   ALLOWED_METHODS,
   type AllowedMethods,
+  getComponents,
   registerSchemaPath,
   removeExcludedPaths,
   uniqueSymbol,
@@ -171,7 +172,10 @@ async function generatePaths<
       defaultOptionsForThisMethod,
     );
 
-    ctx.components = mergeComponentsObjects(ctx.components, components);
+    ctx.components = mergeComponentsObjects(
+      ctx.components,
+      getComponents(components),
+    );
 
     registerSchemaPath({
       route,
@@ -235,7 +239,10 @@ async function getSpec(
             const result = await raw.schema.toOpenAPISchema();
             raw.schema = result.schema;
             if (result.components) {
-              components = mergeComponentsObjects(components, result.components);
+              components = mergeComponentsObjects(
+                components,
+                getComponents(result.components),
+              );
             }
           }
         }

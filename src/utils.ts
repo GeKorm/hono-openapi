@@ -285,3 +285,7 @@ export function removeExcludedPaths(
 
   return newPaths;
 }
+
+export function getComponents(components: OpenAPIV3_1.ComponentsObject) {
+  return components.schemas ? components : { schemas: components };
+}
