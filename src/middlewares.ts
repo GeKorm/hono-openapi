@@ -6,7 +6,7 @@ import {
 import {
   loadVendor as loadVendorOpenAPI,
   toOpenAPISchema,
-} from "@standard-community/standard-openapi";
+} from "@gekorm/standard-openapi";
 import type { StandardSchemaV1 } from "@standard-schema/spec";
 import type {
   Context,

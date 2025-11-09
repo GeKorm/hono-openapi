@@ -4,24 +4,19 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  '@standard-community/standard-openapi':
-    hash: 339dfd268ac3982f17a952b4abe91d29f35b21f928d5f35e9cecc4574e421f67
-    path: patches/@standard-community__standard-openapi.patch
-
 importers:
 
   .:
     dependencies:
+      '@gekorm/standard-openapi':
+        specifier: ^0.2.9
+        version: 0.2.9(@standard-community/standard-json@0.3.5(@standard-schema/spec@1.0.0)(@types/json-schema@7.0.15)(@valibot/to-json-schema@1.3.0(valibot@1.1.0(typescript@5.9.2)))(arktype@2.1.22)(effect@3.17.14)(quansync@0.2.11)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod@4.1.12))(@standard-schema/spec@1.0.0)(arktype@2.1.22)(effect@3.17.14)(openapi-types@12.1.3)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod-openapi@5.4.3(zod@4.1.12))(zod@4.1.12)
       '@hono/standard-validator':
         specifier: ^0.1.2
         version: 0.1.5(@standard-schema/spec@1.0.0)(hono@4.9.9)
       '@standard-community/standard-json':
         specifier: ^0.3.5
-        version: 0.3.5(@standard-schema/spec@1.0.0)(@types/json-schema@7.0.15)(@valibot/to-json-schema@1.3.0(valibot@1.1.0(typescript@5.9.2)))(arktype@2.1.22)(effect@3.17.14)(quansync@0.2.11)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod@4.1.11)
-      '@standard-community/standard-openapi':
-        specifier: ^0.2.8
-        version: 0.2.8(patch_hash=339dfd268ac3982f17a952b4abe91d29f35b21f928d5f35e9cecc4574e421f67)(@standard-community/standard-json@0.3.5(@standard-schema/spec@1.0.0)(@types/json-schema@7.0.15)(@valibot/to-json-schema@1.3.0(valibot@1.1.0(typescript@5.9.2)))(arktype@2.1.22)(effect@3.17.14)(quansync@0.2.11)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod@4.1.11))(@standard-schema/spec@1.0.0)(arktype@2.1.22)(effect@3.17.14)(openapi-types@12.1.3)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod-openapi@5.4.1(zod@4.1.11))(zod@4.1.11)
+        version: 0.3.5(@standard-schema/spec@1.0.0)(@types/json-schema@7.0.15)(@valibot/to-json-schema@1.3.0(valibot@1.1.0(typescript@5.9.2)))(arktype@2.1.22)(effect@3.17.14)(quansync@0.2.11)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod@4.1.12)
       '@types/json-schema':
         specifier: ^7.0.15
         version: 7.0.15
@@ -79,10 +74,10 @@ importers:
         version: 3.2.4
       zod:
         specifier: ^4.1.11
-        version: 4.1.11
+        version: 4.1.12
       zod-openapi:
         specifier: ^5.4.1
-        version: 5.4.1(zod@4.1.11)
+        version: 5.4.3(zod@4.1.12)
 
 packages:
 
@@ -316,6 +311,35 @@ packages:
   '@fastify/busboy@2.1.1':
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
+
+  '@gekorm/standard-openapi@0.2.9':
+    resolution: {integrity: sha512-N1LYo8JPKY8n0tfvC3wAflMl7uYnq8LuXzlN4kHYr9ocUigTN/bp0v/uoJYntYY/ebWU9YV3SCYfAwGxm3QyGw==}
+    peerDependencies:
+      '@standard-community/standard-json': ^0.3.5
+      '@standard-schema/spec': ^1.0.0
+      arktype: ^2.1.20
+      effect: ^3.17.14
+      openapi-types: ^12.1.3
+      sury: ^10.0.0
+      typebox: ^1.0.0
+      valibot: ^1.1.0
+      zod: ^4.1.11
+      zod-openapi: ^5
+    peerDependenciesMeta:
+      arktype:
+        optional: true
+      effect:
+        optional: true
+      sury:
+        optional: true
+      typebox:
+        optional: true
+      valibot:
+        optional: true
+      zod:
+        optional: true
+      zod-openapi:
+        optional: true
 
   '@hono/standard-validator@0.1.5':
     resolution: {integrity: sha512-EIyZPPwkyLn6XKwFj5NBEWHXhXbgmnVh2ceIFo5GO7gKI9WmzTjPDKnppQB0KrqKeAkq3kpoW4SIbu5X1dgx3w==}
@@ -601,35 +625,6 @@ packages:
       zod:
         optional: true
       zod-to-json-schema:
-        optional: true
-
-  '@standard-community/standard-openapi@0.2.8':
-    resolution: {integrity: sha512-80ap74p5oy/SU4al5HkPwO5+NbN2wH/FBr6kwaE5ROq7AvcDFaxzUfTazewroNaCotbvdGcvzXb9oEoOIyfC/Q==}
-    peerDependencies:
-      '@standard-community/standard-json': ^0.3.5
-      '@standard-schema/spec': ^1.0.0
-      arktype: ^2.1.20
-      effect: ^3.17.14
-      openapi-types: ^12.1.3
-      sury: ^10.0.0
-      typebox: ^1.0.0
-      valibot: ^1.1.0
-      zod: ^3.25.0 || ^4.0.0
-      zod-openapi: ^4
-    peerDependenciesMeta:
-      arktype:
-        optional: true
-      effect:
-        optional: true
-      sury:
-        optional: true
-      typebox:
-        optional: true
-      valibot:
-        optional: true
-      zod:
-        optional: true
-      zod-openapi:
         optional: true
 
   '@standard-schema/spec@1.0.0':
@@ -1205,8 +1200,8 @@ packages:
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
-  zod-openapi@5.4.1:
-    resolution: {integrity: sha512-deZCmezGJhi2urw7l8LWYCJEUaAb/Azo14c0wncCM7L7u7hz+1d4v3r4Uav7x4+zVkJj/ZYlCu6lwT0QQttW6g==}
+  zod-openapi@5.4.3:
+    resolution: {integrity: sha512-6kJ/gJdvHZtuxjYHoMtkl2PixCwRuZ/s79dVkEr7arHvZGXfx7Cvh53X3HfJ5h9FzGelXOXlnyjwfX0sKEPByw==}
     engines: {node: '>=20'}
     peerDependencies:
       zod: ^3.25.74 || ^4.0.0
@@ -1218,8 +1213,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.11:
-    resolution: {integrity: sha512-WPsqwxITS2tzx1bzhIKsEs19ABD5vmCVa4xBo2tq/SrV4RNZtfws1EnCWQXM6yh8bD08a1idvkB5MZSBiZsjwg==}
+  zod@4.1.12:
+    resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
 
 snapshots:
 
@@ -1359,6 +1354,20 @@ snapshots:
     optional: true
 
   '@fastify/busboy@2.1.1': {}
+
+  '@gekorm/standard-openapi@0.2.9(@standard-community/standard-json@0.3.5(@standard-schema/spec@1.0.0)(@types/json-schema@7.0.15)(@valibot/to-json-schema@1.3.0(valibot@1.1.0(typescript@5.9.2)))(arktype@2.1.22)(effect@3.17.14)(quansync@0.2.11)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod@4.1.12))(@standard-schema/spec@1.0.0)(arktype@2.1.22)(effect@3.17.14)(openapi-types@12.1.3)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod-openapi@5.4.3(zod@4.1.12))(zod@4.1.12)':
+    dependencies:
+      '@standard-community/standard-json': 0.3.5(@standard-schema/spec@1.0.0)(@types/json-schema@7.0.15)(@valibot/to-json-schema@1.3.0(valibot@1.1.0(typescript@5.9.2)))(arktype@2.1.22)(effect@3.17.14)(quansync@0.2.11)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod@4.1.12)
+      '@standard-schema/spec': 1.0.0
+      openapi-types: 12.1.3
+    optionalDependencies:
+      arktype: 2.1.22
+      effect: 3.17.14
+      sury: 10.0.4
+      typebox: 1.0.17
+      valibot: 1.1.0(typescript@5.9.2)
+      zod: 4.1.12
+      zod-openapi: 5.4.3(zod@4.1.12)
 
   '@hono/standard-validator@0.1.5(@standard-schema/spec@1.0.0)(hono@4.9.9)':
     dependencies:
@@ -1582,7 +1591,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.52.3':
     optional: true
 
-  '@standard-community/standard-json@0.3.5(@standard-schema/spec@1.0.0)(@types/json-schema@7.0.15)(@valibot/to-json-schema@1.3.0(valibot@1.1.0(typescript@5.9.2)))(arktype@2.1.22)(effect@3.17.14)(quansync@0.2.11)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod@4.1.11)':
+  '@standard-community/standard-json@0.3.5(@standard-schema/spec@1.0.0)(@types/json-schema@7.0.15)(@valibot/to-json-schema@1.3.0(valibot@1.1.0(typescript@5.9.2)))(arktype@2.1.22)(effect@3.17.14)(quansync@0.2.11)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod@4.1.12)':
     dependencies:
       '@standard-schema/spec': 1.0.0
       '@types/json-schema': 7.0.15
@@ -1594,21 +1603,7 @@ snapshots:
       sury: 10.0.4
       typebox: 1.0.17
       valibot: 1.1.0(typescript@5.9.2)
-      zod: 4.1.11
-
-  '@standard-community/standard-openapi@0.2.8(patch_hash=339dfd268ac3982f17a952b4abe91d29f35b21f928d5f35e9cecc4574e421f67)(@standard-community/standard-json@0.3.5(@standard-schema/spec@1.0.0)(@types/json-schema@7.0.15)(@valibot/to-json-schema@1.3.0(valibot@1.1.0(typescript@5.9.2)))(arktype@2.1.22)(effect@3.17.14)(quansync@0.2.11)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod@4.1.11))(@standard-schema/spec@1.0.0)(arktype@2.1.22)(effect@3.17.14)(openapi-types@12.1.3)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod-openapi@5.4.1(zod@4.1.11))(zod@4.1.11)':
-    dependencies:
-      '@standard-community/standard-json': 0.3.5(@standard-schema/spec@1.0.0)(@types/json-schema@7.0.15)(@valibot/to-json-schema@1.3.0(valibot@1.1.0(typescript@5.9.2)))(arktype@2.1.22)(effect@3.17.14)(quansync@0.2.11)(sury@10.0.4)(typebox@1.0.17)(valibot@1.1.0(typescript@5.9.2))(zod@4.1.11)
-      '@standard-schema/spec': 1.0.0
-      openapi-types: 12.1.3
-    optionalDependencies:
-      arktype: 2.1.22
-      effect: 3.17.14
-      sury: 10.0.4
-      typebox: 1.0.17
-      valibot: 1.1.0(typescript@5.9.2)
-      zod: 4.1.11
-      zod-openapi: 5.4.1(zod@4.1.11)
+      zod: 4.1.12
 
   '@standard-schema/spec@1.0.0': {}
 
@@ -2154,9 +2149,9 @@ snapshots:
 
   wrappy@1.0.2: {}
 
-  zod-openapi@5.4.1(zod@4.1.11):
+  zod-openapi@5.4.3(zod@4.1.12):
     dependencies:
-      zod: 4.1.11
+      zod: 4.1.12
 
   zod-package-json@1.2.0:
     dependencies:
@@ -2164,4 +2159,4 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.1.11: {}
+  zod@4.1.12: {}
