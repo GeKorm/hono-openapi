@@ -1,4 +1,4 @@
-# 📜 Hono OpenAPI
+# Form of Hono OpenAPI for Zod v4
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/rhinobase/hono-openapi)
 [![npm version](https://img.shields.io/npm/v/hono-openapi.svg)](https://npmjs.org/package/hono-openapi "View this project on NPM")
